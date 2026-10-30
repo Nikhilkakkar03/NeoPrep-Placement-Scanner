@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NeoPrep - Placement Readiness Scanner</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Animated Background -->
+  <div class="bg-shapes">
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+  </div>
+
+  <div class="container">
+    
+    <!-- SCREEN 0: WELCOME SCREEN -->
+    <div id="welcomeSection" class="glass-card text-center">
+      <h1>🚀 NeoPrep Scanner</h1>
+      <p class="subtitle">Find out which company fits YOU!</p>
+      
+      <div class="instructions">
+        <h3>Instructions:</h3>
+        <ul>
+          <li>Total Questions: <strong>12</strong></li>
+          <li>Sections: <strong>Quant, Verbal, Logical</strong></li>
+          <li>You must answer all questions.</li>
+          <li>Your results will be instantly analyzed.</li>
+        </ul>
+      </div>
+
+      <button onclick="startTest()" class="btn-glow">Start Assessment 🚀</button>
+    </div>
+
+    <!-- SCREEN 1: THE TEST -->
+    <div id="testSection" class="glass-card hidden">
+      <div class="test-header">
+        <h2>Aptitude Assessment</h2>
+        <div class="progress-container">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <p id="progressText">0 of 12 answered</p>
+      </div>
+      
+      <div id="questionsContainer">
+        <!-- JS will inject questions here -->
+      </div>
+      
+      <button onclick="submitTest()" class="btn-glow">Generate Analysis 🚀</button>
+    </div>
+
+    <!-- SCREEN 2: THE REPORT -->
+    <div id="reportSection" class="glass-card hidden">
+      <h2>📊 Readiness Dashboard</h2>
+      
+      <div class="scores-grid">
+        <div class="score-box quant">
+          <h3>Quantitative</h3>
+          <p id="qScore">0%</p>
+        </div>
+        <div class="score-box verbal">
+          <h3>Verbal</h3>
+          <p id="vScore">0%</p>
+        </div>
+        <div class="score-box logical">
+          <h3>Logical</h3>
+          <p id="lScore">0%</p>
+        </div>
+      </div>
+
+      <div class="best-fit">
+        <h3>🏆 Top Match</h3>
+        <p id="bestFitText">Calculating...</p>
+      </div>
+
+      <h3 class="section-title">Company Compatibility Matrix</h3>
+      <p style="font-size: 13px; color: #94a3b8; margin-bottom: 10px;">*Click on any company to view its requirements.</p>
+      <div id="companyList" class="company-list"></div>
+
+      <h3 class="section-title">Detailed Gap Analysis</h3>
+      <div id="gapAnalysis" class="gap-list"></div>
+
+      <button onclick="location.reload()" class="btn-restart" style="margin-top: 20px;">Restart Assessment</button>
+    </div>
+  </div>
+
+  <!-- MODAL: Company Details -->
+  <div id="companyModal" class="modal">
+    <div class="modal-content glass-card">
+      <span class="close-modal" onclick="closeCompanyModal()">&times;</span>
+      <h2 id="modalCompanyName">Company Name</h2>
+      <div id="modalCompanyDetails">Details here...</div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
